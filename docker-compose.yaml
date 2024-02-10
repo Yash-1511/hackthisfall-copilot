@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  admin:
+    build:
+      context: ./admin
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./admin/.env
+
+  store:
+    build:
+      context: ./store
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"
+    env_file:
+      - ./store/.env
