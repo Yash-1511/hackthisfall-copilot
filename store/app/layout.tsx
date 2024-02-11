@@ -4,6 +4,7 @@ import ModalProvider from '@/providers/modal-provider'
 import ToastProvider from '@/providers/toast-provider'
 import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
+import Script from "next/script";
 
 import './globals.css'
 import MultipleIdProvider from '@/providers/responce-provider'
@@ -26,11 +27,21 @@ export default function RootLayout({
         <MultipleIdProvider>
         <ToastProvider />
         <ModalProvider />
+<<<<<<< HEAD
 
         <Navbar />
         {children}
         <Footer />
         </MultipleIdProvider>
+=======
+        {children}
+        <Script src="/chat-widget.js"></Script>
+        <Script>{`
+window.onload = function() {
+    ChatWidget.init("xx-slkUdka819...");
+};
+`}</Script>
+>>>>>>> 16861c426921294556c99ee5bf4b21b63f403129
       </body>
     </html>
   )
