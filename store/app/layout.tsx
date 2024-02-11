@@ -7,6 +7,7 @@ import Footer from '@/components/footer'
 import Script from "next/script";
 
 import './globals.css'
+import MultipleIdProvider from '@/providers/responce-provider'
 
 const font = Urbanist({ subsets: ['latin'] })
 
@@ -23,9 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
+        <MultipleIdProvider>
         <ToastProvider />
         <ModalProvider />
         {children}
+        </MultipleIdProvider>
         <Script src="/chat-widget.js"></Script>
         <Script>{`
 window.onload = function() {
