@@ -6,6 +6,7 @@ import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
 
 import './globals.css'
+import MultipleIdProvider from '@/providers/responce-provider'
 
 const font = Urbanist({ subsets: ['latin'] })
 
@@ -22,11 +23,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
+        <MultipleIdProvider>
         <ToastProvider />
         <ModalProvider />
+
         <Navbar />
         {children}
         <Footer />
+        </MultipleIdProvider>
       </body>
     </html>
   )
