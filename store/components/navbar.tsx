@@ -7,13 +7,9 @@ import getCategories from "@/actions/get-categories";
 import SearchInput from "./shared/SearchInput";
 
 const Navbar = async () => {
-  // try
-// {
-  const categories = await getCategories();
-// }catch(error){
-//   console.log("Error : ",error);
   
-// }
+  const categories = await getCategories();
+
 
   return ( 
     <div className="border-b">
@@ -23,7 +19,7 @@ const Navbar = async () => {
             <p className="font-bold text-xl">STORE</p>
           </Link>
           <MainNav data={categories} />
-          <SearchInput />
+          {/* <SearchInput /> */}
           <NavbarActions />
         </div>
       </Container>

@@ -1,4 +1,5 @@
 "use client";
+import { useIdContext } from '@/providers/responce-provider';
 import { useRef, useState, FormEvent } from 'react';
 
 interface Message {
@@ -7,6 +8,7 @@ interface Message {
 }
 
 export default function ChatWidget() {
+     const {setIds}=useIdContext();
     const scrollTargetRef = useRef<HTMLDivElement>(null);
     const initialMessages: Message[] = [
         {
@@ -52,11 +54,12 @@ export default function ChatWidget() {
             convert_answer = JSON.parse(answer);
             let summary = convert_answer.summary;
             let productIds = convert_answer.productIds;
+            setIds(productIds);
             // convert data.answer to json object
             // if (data.answer.startsWith('{') && data.answer.endsWith('}')) {
             //     convert_answer = JSON.parse(data.answer);
             // }  
-            // console.log(convert_answer.summary);
+            // cons ole.log(convert_answer.summary);
 
             // Handle the response from the API (e.g., displaying the bot's reply)
 

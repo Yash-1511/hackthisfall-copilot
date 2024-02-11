@@ -27,21 +27,14 @@ export default function RootLayout({
         <MultipleIdProvider>
         <ToastProvider />
         <ModalProvider />
-<<<<<<< HEAD
-
-        <Navbar />
         {children}
-        <Footer />
         </MultipleIdProvider>
-=======
-        {children}
         <Script src="/chat-widget.js"></Script>
         <Script>{`
 window.onload = function() {
     ChatWidget.init("xx-slkUdka819...");
 };
 `}</Script>
->>>>>>> 16861c426921294556c99ee5bf4b21b63f403129
       </body>
     </html>
   )

@@ -1,21 +1,19 @@
 
-"use client"
 import ProductList from "@/components/product-list";
 import CustomeButton from "@/components/shared/customebutton";
 import Container from "@/components/ui/container";
-import getSearch from "@/actions/get-search";
-import { useSearchParams } from "next/navigation";
-import { useRouter } from 'next/router';
+import getProducts from "@/actions/get-products";
 export const revalidate = 0;
 
 
 const SearchPage = async () => {
-  const router = useRouter();
-  const SearchParams = router.query;
+  // const router = useRouter();
+  // const SearchParams = router.query;
 
-  const query = SearchParams?.get("q") ?? ""; // Get the "q" query parameter with optional chaining and provide a default value
+  // const query = SearchParams?.get("q") ?? ""; // Get the "q" query parameter with optional chaining and provide a default value
 
-  const products = await getSearch(query);
+ // const products = await getSearch("shoes");
+ const products = await getProducts({ isFeatured: true });
    
   return (
     <Container>
