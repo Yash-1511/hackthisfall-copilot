@@ -4,6 +4,7 @@ import ModalProvider from '@/providers/modal-provider'
 import ToastProvider from '@/providers/toast-provider'
 import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
+import Script from "next/script";
 
 import './globals.css'
 
@@ -24,9 +25,13 @@ export default function RootLayout({
       <body className={font.className}>
         <ToastProvider />
         <ModalProvider />
-        <Navbar />
         {children}
-        <Footer />
+        <Script src="/chat-widget.js"></Script>
+        <Script>{`
+window.onload = function() {
+    ChatWidget.init("xx-slkUdka819...");
+};
+`}</Script>
       </body>
     </html>
   )
